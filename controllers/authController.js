@@ -27,8 +27,6 @@ exports.register = async (req, res) => {
 // Login a user
 exports.login = async (req, res) => {
   const { email, password } = req.body;
-  console.log("Api calling", email, password)
-
   try {
     const user = await User.findOne({ email });
     if (user && (await bcrypt.compare(password, user.password))) {

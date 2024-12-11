@@ -12,14 +12,19 @@ const CarSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: true,
-    match: /^[0-9]{10}$/, // Ensure 10-digit phone number
+    match: /^[0-9]{10}$/,
   },
   city: {
     type: String,
     required: true,
   },
   photos: {
-    type: [String], // Array of image URLs
+    type: [String],
+    required: true,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', // This references the User model
     required: true,
   },
 });
